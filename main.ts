@@ -24,6 +24,7 @@ interface FormField {
         input = document.createElement("input") as HTMLInputElement;
         input.type = "text"; // Cast to HTMLInputElement, so TypeScript understands the `type` property
         input.className = "form-control";
+        input.placeholder = "";
       } else if (field.type === "radio" || field.type === "checkbox") {
         input = document.createElement("div") as HTMLDivElement;
         field.options?.forEach((option) => {
@@ -169,7 +170,7 @@ interface FormField {
         deleteButton.textContent = "Delete";
         deleteButton.className = "btn btn-danger btn-sm";
         deleteButton.onclick = () => deleteFieldInSavedForm(formIndex, fieldIndex); // Fixed reference to `deleteFieldInSavedForm`
-  
+
         fieldElement.appendChild(fieldLabel);
         fieldElement.appendChild(fieldInput);
         fieldElement.appendChild(editButton);
